@@ -44,4 +44,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+     public function classRoom()
+    {
+        return $this->hasOne(ClassRoom::class, 'wali_kelas_id');
+    }
+
+    public function attendancesRecorded()
+    {
+        return $this->hasMany(Attendance::class, 'created_by');
+    }
 }
