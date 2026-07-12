@@ -11,7 +11,7 @@ class Major extends Model
 
     protected $fillable = ['name', 'code'];
 
-    public function classroom() 
+    public function classRooms()
     {
         return $this->hasMany(ClassRoom::class);
     }
