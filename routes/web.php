@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Students\Index as StudentsIndex;
+use App\Livewire\Attendances\Create as AttendancesCreate;
 
-Route::view('/', 'welcome');
+Route::view('/', 'dashboard');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -15,6 +16,7 @@ Route::view('profile', 'profile')
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/students', StudentsIndex::class)->name('students.index');
+    Route::get('/attendances/create', AttendancesCreate::class)->name('attendances.create');
 });
 
 require __DIR__.'/auth.php';
