@@ -40,7 +40,10 @@ new class extends Component
                      <x-nav-link :href="route('attendances.create')" :active="request()->routeIs('attendances.create')" wire:navigate>
                       {{ __('Absensi') }}
                     </x-nav-link>
-                </div>
+                    <x-nav-link :href="route('attendances.index')" :active="request()->routeIs('attendances.index')" wire:navigate>
+                      {{ __('Riwayat Absensi') }}
+                    </x-nav-link>
+                </div>  
             </div>
 
             <!-- Settings Dropdown -->
@@ -101,6 +104,10 @@ new class extends Component
             <x-responsive-nav-link :href="route('attendances.create')" :active="request()->routeIs('attendances.create')" wire:navigate>
             {{ __('Absensi') }}
          </x-responsive-nav-link>
+
+         <x-responsive-nav-link :href="route('attendances.index')" :active="request()->routeIs('attendances.index')" wire:navigate>
+            {{ __('Riwayat Absensi') }}
+        </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

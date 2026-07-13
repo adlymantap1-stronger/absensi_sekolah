@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained()->cascadeOnDelete();
             $table->date('date');
-            $table->enum('status', ['hadir', 'sakit', 'izin', 'alpha']);
+            $table->enum('status', ['hadir', 'sakit', 'izin', 'alpa']);
             $table->foreignId('created_by')->constrained('users');
             $table->timestamps();
             $table->softDeletes();

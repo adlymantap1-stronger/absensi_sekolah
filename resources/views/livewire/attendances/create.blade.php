@@ -65,7 +65,7 @@
                             <td class="px-4 py-3 text-sm text-gray-800 font-medium">{{ $student->name }}</td>
                             <td class="px-4 py-3">
                                 <div class="flex justify-center gap-2">
-                                    @foreach (['hadir' => 'Hadir', 'sakit' => 'Sakit', 'izin' => 'Izin', 'alpha' => 'Alpha'] as $value => $label)
+                                    @foreach (['hadir' => 'Hadir', 'sakit' => 'Sakit', 'izin' => 'Izin', 'alpa' => 'Alpa'] as $value => $label)
                                         <label class="{{ $isLocked ? 'cursor-not-allowed' : 'cursor-pointer' }}">
                                             <input type="radio" wire:model="statuses.{{ $student->id }}" value="{{ $value }}"
                                                 class="peer hidden"
