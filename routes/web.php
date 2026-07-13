@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Students\Index as StudentsIndex;
 use App\Livewire\Attendances\Create as AttendancesCreate;
 use App\Livewire\Attendances\Index as AttendancesIndex;
+use App\Livewire\Dashboard;
 
 Route::view('/', 'dashboard');
 
-Route::view('dashboard', 'dashboard')
+Route::get('dashboard', Dashboard::class)
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
