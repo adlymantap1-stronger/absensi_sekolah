@@ -56,7 +56,7 @@
         {{-- Kolom kanan: riwayat absensi, scroll internal supaya halaman tidak memanjang --}}
         <div class="bg-white rounded-xl shadow-card border border-gray-100 overflow-hidden">
             <div class="px-4 py-3 border-b border-gray-100">
-                <h3 class="text-sm font-semibold text-gray-700">10 Riwayat Terbaru</h3>
+                <h3 class="text-sm font-semibold text-gray-700">Riwayat Abesnesi</h3>
             </div>
             <div class="max-h-72 overflow-y-auto">
                 <table class="min-w-full divide-y divide-gray-100">
