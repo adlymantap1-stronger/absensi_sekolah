@@ -48,7 +48,7 @@ class Index extends Component
             ->where('date', $this->date)
             ->when($this->filterClassRoom, fn ($q) => $q->whereHas('student', fn ($sq) => $sq->where('class_room_id', $this->filterClassRoom)))
             ->when($this->filterStudent, fn ($q) => $q->whereHas('student', fn ($sq) => $sq->where('name', 'like', '%' . $this->filterStudent . '%')))
-            ->latest()
+            ->orderBy(\App\Models\Student::select('name')->whereColumn('students.id', 'attendances.student_id'))
             ->paginate(15);
 
         return view('livewire.attendances.index', [

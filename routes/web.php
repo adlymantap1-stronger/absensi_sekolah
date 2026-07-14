@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Students\Index as StudentsIndex;
+use App\Livewire\Students\Show as StudentsShow;
 use App\Livewire\Attendances\Create as AttendancesCreate;
 use App\Livewire\Attendances\Index as AttendancesIndex;
 use App\Livewire\Reports\Index as ReportsIndex;
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/attendances/create', AttendancesCreate::class)->name('attendances.create');
     Route::get('/attendances', AttendancesIndex::class)->name('attendances.index');
     Route::get('/reports', ReportsIndex::class)->name('reports.index');
+    Route::get('/students/{student}', StudentsShow::class)->name('students.show');
 });
 
 require __DIR__.'/auth.php';

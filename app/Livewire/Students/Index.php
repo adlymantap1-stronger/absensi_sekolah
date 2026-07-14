@@ -94,7 +94,7 @@ class Index extends Component
             ->with('classRoom.major')
             ->when($this->search, fn($q) => $q->where('name', 'like', '%' . $this->search . '%'))
             ->when($this->filterClassRoom, fn($q) => $q->where('class_room_id', $this->filterClassRoom))
-            ->latest()
+            ->orderBy('name')
             ->paginate(10);
 
         return view('livewire.students.index', [
