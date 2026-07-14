@@ -13,7 +13,7 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $date;
+    public ?string $date;
     public $filterClassRoom = '';
     public $filterStudent = '';
 

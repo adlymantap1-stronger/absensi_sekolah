@@ -58,8 +58,6 @@ class Create extends Component
             ->orderBy('name')
             ->get();
 
-        // Cek apakah absensi kelas ini di tanggal ini SUDAH PERNAH disimpan sebelumnya.
-        // Kalau sudah, kunci form supaya tidak bisa diubah lagi hari itu (business rule).
         $existing = Attendance::where('date', $this->date)
             ->whereIn('student_id', $this->students->pluck('id'))
             ->pluck('status', 'student_id');
@@ -67,7 +65,6 @@ class Create extends Component
         $this->isLocked = $existing->isNotEmpty();
 
         foreach ($this->students as $student) {
-            // Default status: pakai data lama kalau sudah ada, atau 'hadir' kalau belum
             $this->statuses[$student->id] = $existing[$student->id] ?? 'hadir';
         }
     }
@@ -79,15 +76,12 @@ class Create extends Component
             'date' => 'required|date',
         ]);
 
-        // Guard tambahan: cegah submit ulang kalau kelas+tanggal ini sudah dikunci,
-        // meskipun tombol Simpan seharusnya sudah tersembunyi di UI.
+
         if ($this->isLocked) {
             session()->flash('error', 'Absensi untuk kelas dan tanggal ini sudah dikunci dan tidak bisa diubah lagi.');
             return;
         }
 
-        // updateOrCreate supaya business rule "1 siswa 1 absensi per hari" otomatis terjaga:
-        // kalau sudah ada record untuk siswa+tanggal itu, akan di-update, bukan bikin duplikat.
         foreach ($this->statuses as $studentId => $status) {
             Attendance::updateOrCreate(
                 [

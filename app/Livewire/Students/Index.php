@@ -22,7 +22,7 @@ class Index extends Component
     public $gender = '';
     public $class_room_id = '';
 
-    public $editingId = null;
+    public ?int $editingId = null;
     public $showModal = false;
 
     protected function rules()
@@ -51,7 +51,7 @@ class Index extends Component
         $this->showModal = true;
     }
 
-    public function openEditModal($id)
+    public function openEditModal(int $id)
     {
         $student = Student::findOrFail($id);
         $this->editingId = $student->id;
@@ -78,7 +78,7 @@ class Index extends Component
         $this->showModal = false;
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
         Student::findOrFail($id)->delete(); // soft delete
     }
@@ -90,7 +90,6 @@ class Index extends Component
 
     public function render()
     {
-        // Eager load classRoom.major untuk hindari N+1 query (sesuai non-functional requirement)
         $students = Student::query()
             ->with('classRoom.major')
             ->when($this->search, fn($q) => $q->where('name', 'like', '%' . $this->search . '%'))

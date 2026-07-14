@@ -4,9 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Students\Index as StudentsIndex;
 use App\Livewire\Attendances\Create as AttendancesCreate;
 use App\Livewire\Attendances\Index as AttendancesIndex;
+use App\Livewire\Reports\Index as ReportsIndex;
 use App\Livewire\Dashboard;
 
-Route::view('/', 'dashboard');
+Route::get('/', function () {
+    return redirect()->route('dashboard');
+});
 
 Route::get('dashboard', Dashboard::class)
     ->middleware(['auth', 'verified'])
@@ -19,8 +22,8 @@ Route::view('profile', 'profile')
 Route::middleware(['auth'])->group(function () {
     Route::get('/students', StudentsIndex::class)->name('students.index');
     Route::get('/attendances/create', AttendancesCreate::class)->name('attendances.create');
+    Route::get('/attendances', AttendancesIndex::class)->name('attendances.index');
+    Route::get('/reports', ReportsIndex::class)->name('reports.index');
 });
-
-Route::get('/attendances', AttendancesIndex::class)->name('attendances.index');
 
 require __DIR__.'/auth.php';

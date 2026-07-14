@@ -43,10 +43,13 @@ new class extends Component
                     <x-nav-link :href="route('attendances.index')" :active="request()->routeIs('attendances.index')" wire:navigate>
                       {{ __('Riwayat Absensi') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')" wire:navigate>
+                       {{ __('Laporan') }}
+                    </x-nav-link>
                 </div>  
             </div>
 
-            <!-- Settings Dropdown -->
+          <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -56,6 +59,10 @@ new class extends Component
                             </span>
 
                             <div x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
+
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-semibold {{ auth()->user()->isAdmin() ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700' }}">
+                                {{ auth()->user()->isAdmin() ? 'Admin' : 'Wali Kelas' }}
+                            </span>
 
                             <svg class="fill-current h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -77,7 +84,7 @@ new class extends Component
                     </x-slot>
                 </x-dropdown>
             </div>
-
+            
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -107,6 +114,10 @@ new class extends Component
 
          <x-responsive-nav-link :href="route('attendances.index')" :active="request()->routeIs('attendances.index')" wire:navigate>
             {{ __('Riwayat Absensi') }}
+        </x-responsive-nav-link>
+
+        <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')" wire:navigate>
+           {{ __('Laporan') }}
         </x-responsive-nav-link>
         </div>
 

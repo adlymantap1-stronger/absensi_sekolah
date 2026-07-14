@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Attendance::class, 'created_by');
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isWaliKelas(): bool
+    {
+        return $this->role === 'wali_kelas';
+    }
 }
