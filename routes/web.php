@@ -7,6 +7,7 @@ use App\Livewire\Attendances\Create as AttendancesCreate;
 use App\Livewire\Attendances\Index as AttendancesIndex;
 use App\Livewire\Reports\Index as ReportsIndex;
 use App\Livewire\Dashboard;
+use App\Livewire\Attendances\Calendar as AttendancesCalendar;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -27,5 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reports', ReportsIndex::class)->name('reports.index');
     Route::get('/students/{student}', StudentsShow::class)->name('students.show');
 });
+
+Route::get('/attendances/calendar', AttendancesCalendar::class)->name('attendances.calendar');
 
 require __DIR__.'/auth.php';
