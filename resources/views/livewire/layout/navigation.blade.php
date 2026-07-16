@@ -16,7 +16,22 @@ new class extends Component
     }
 }; ?>
 
-<nav x-data="{ open: false }" class="bg-white/90 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+<nav
+    x-data="{
+        open: false,
+        darkMode: false,
+
+        init() {
+            this.darkMode = localStorage.getItem('darkMode') === 'true';
+
+            document.documentElement.classList.toggle('dark', this.darkMode);
+
+            this.$watch('darkMode', value => {
+                document.documentElement.classList.toggle('dark', value);
+                localStorage.setItem('darkMode', value);
+            });
+        }
+    }"
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -53,10 +68,20 @@ new class extends Component
             </div>
 
           <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center sm:ms-6 gap-2">
+                <button
+                    @click="darkMode = !darkMode"
+                    type="button"
+                    class="p-2 rounded-lg text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-primary transition-colors"
+                    title="Toggle Theme"
+                >
+                    <span x-show="!darkMode" x-cloak class="text-lg">☀️</span>
+                    <span x-show="darkMode" x-cloak class="text-lg">🌙</span>
+                </button>
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center gap-2 pl-1.5 pr-3 py-1.5 border border-transparent text-sm leading-4 font-medium rounded-full text-gray-600 bg-gray-50 hover:bg-gray-100 hover:text-primary focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center gap-2 pl-1.5 pr-3 py-1.5 border border-transparent text-sm leading-4 font-medium rounded-full text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-primary focus:outline-none transition ease-in-out duration-150">
                             <span class="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center text-xs font-bold">
                                 {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                             </span>
