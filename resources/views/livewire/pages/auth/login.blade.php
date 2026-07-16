@@ -67,5 +67,10 @@ new #[Layout('layouts.guest')] class extends Component
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
-    </form>
+   </form>
+
+    <p class="text-center text-sm text-gray-500 mt-6">
+        Belum punya akun?
+        <a href="{{ route('register') }}" wire:navigate class="text-accent font-semibold hover:underline">Daftar di sini</a>
+    </p>
 </div>
