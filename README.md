@@ -238,32 +238,31 @@ routes/api.php                → route API
 ## 📸 Screenshot Aplikasi
 
 ### Login
-![Login](docs/screenshots/Screenshot 2026-07-16 110730.png)
+![Login](docs/screenshots/login.png)
 
 ### Dashboard
-![Dashboard](docs/screenshots/Screenshot 2026-07-16 110911.png)
+![Dashboard](docs/screenshots/dashboard.png)
 
 ### Data Siswa
-![Data Siswa](docs/screenshots/Screenshot 2026-07-16 110942.png)
+![Data Siswa](docs/screenshots/datasiswa.png)
 
 ### Detail Profil Siswa
-![Detail Siswa](docs/screenshots/Screenshot 2026-07-16 111009.png)
+![Detail Siswa](docs/screenshots/detailsiswa.png)
 
 ### Input Absensi
-![Absensi](docs/screenshots/Screenshot 2026-07-16 111048.png)
+![Absensi](docs/screenshots/inputabsensi.png)
 
 ### Riwayat Absensi
-![Riwayat Absensi](docs/screenshots/Screenshot 2026-07-16 111113.png)
+![Riwayat Absensi](docs/screenshots/riwayatabsensi.png)
 
 ### Laporan Kehadiran
-![Laporan](docs/screenshots/Screenshot 2026-07-16 111514.png)
+![Laporan](docs/screenshots/laporankehadiran.png)
 
 ### Kalender Kehadiran
-![Kalender](docs/screenshots/Screenshot 2026-07-16 111606.png)
+![Kalender](docs/screenshots/kalenderkehadiran.png)
 
 ### Dark Mode
-![Dark Mode](docs/screenshots/Screenshot 2026-07-16 111618.png)
-
+![Dark Mode](docs/screenshots/darkmode.png)
 ---
 
 **Dibuat sebagai bagian dari Mini Project Assessment — Student Attendance System.**
