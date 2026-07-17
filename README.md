@@ -238,31 +238,31 @@ routes/api.php                → route API
 ## 📸 Screenshot Aplikasi
 
 ### Login
-![Login](docs/screenshots/01-login.png)
+![Login](docs/screenshots/Screenshot 2026-07-16 110730.png)
 
 ### Dashboard
-![Dashboard](docs/screenshots/02-dashboard.png)
+![Dashboard](docs/screenshots/Screenshot 2026-07-16 110911.png)
 
 ### Data Siswa
-![Data Siswa](docs/screenshots/03-data-siswa.png)
+![Data Siswa](docs/screenshots/Screenshot 2026-07-16 110942.png)
 
 ### Detail Profil Siswa
-![Detail Siswa](docs/screenshots/04-detail-siswa.png)
+![Detail Siswa](docs/screenshots/Screenshot 2026-07-16 111009.png)
 
 ### Input Absensi
-![Absensi](docs/screenshots/05-absensi.png)
+![Absensi](docs/screenshots/Screenshot 2026-07-16 111048.png)
 
 ### Riwayat Absensi
-![Riwayat Absensi](docs/screenshots/06-riwayat-absensi.png)
+![Riwayat Absensi](docs/screenshots/Screenshot 2026-07-16 111113.png)
 
 ### Laporan Kehadiran
-![Laporan](docs/screenshots/07-laporan.png)
+![Laporan](docs/screenshots/Screenshot 2026-07-16 111514.png)
 
 ### Kalender Kehadiran
-![Kalender](docs/screenshots/08-kalender.png)
+![Kalender](docs/screenshots/Screenshot 2026-07-16 111606.png)
 
 ### Dark Mode
-![Dark Mode](docs/screenshots/09-dark-mode.png)
+![Dark Mode](docs/screenshots/Screenshot 2026-07-16 111618.png)
 
 ---
 
