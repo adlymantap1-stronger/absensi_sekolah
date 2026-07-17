@@ -23,10 +23,9 @@
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tahun</label>
-                <select
-                    wire:model.live="year"
-                    class="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:outline-none">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tahun</label>
+                <select wire:model.live="year"
+                    class="border border-gray-300 rounded-lg pl-3 pr-8 py-2 text-sm min-w-[100px] focus:ring-2 focus:ring-accent focus:outline-none">
                     @foreach (range(now()->year, now()->year - 2) as $y)
                         <option value="{{ $y }}">{{ $y }}</option>
                     @endforeach
