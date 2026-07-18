@@ -37,24 +37,29 @@ new #[Layout('layouts.guest')] class extends Component
 }; ?>
 
 <div>
-    <form wire:submit="register">
+    <div class="mb-6 text-center">
+        <h2 class="text-xl font-bold text-primary">Buat Akun Baru</h2>
+        <p class="text-sm text-gray-500 mt-1">Akun baru akan otomatis terdaftar sebagai Wali Kelas</p>
+    </div>
+
+    <form wire:submit="register" class="space-y-4">
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" value="Nama Lengkap" />
             <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+        <div>
+            <x-input-label for="email" value="Email" />
             <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <div>
+            <x-input-label for="password" value="Password" />
 
             <x-text-input wire:model="password" id="password" class="block mt-1 w-full"
                             type="password"
@@ -65,8 +70,8 @@ new #[Layout('layouts.guest')] class extends Component
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <div>
+            <x-input-label for="password_confirmation" value="Konfirmasi Password" />
 
             <x-text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
                             type="password"
@@ -75,14 +80,15 @@ new #[Layout('layouts.guest')] class extends Component
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
+        <div class="flex items-center justify-end pt-2">
+            <x-primary-button class="w-full justify-center py-3">
+                Daftar Sekarang
             </x-primary-button>
         </div>
     </form>
+
+    <p class="text-center text-sm text-gray-500 mt-6">
+        Sudah punya akun?
+        <a href="{{ route('login') }}" wire:navigate class="text-accent font-semibold hover:underline">Masuk di sini</a>
+    </p>
 </div>
