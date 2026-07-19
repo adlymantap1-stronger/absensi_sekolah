@@ -12,15 +12,18 @@ use Livewire\Attributes\Layout;
 class Index extends Component
 {
     use WithPagination;
-
-    // Untuk pencarian & filter (requirement: "Pencarian dan filter siswa")
+    // Untuk pencarian & filter
     public $search = '';
     public $filterClassRoom = '';
 
-    // Field form tambah/edit siswa
+    // Untuk pencarian & filter (requirement: "Pencarian dan filter siswa")
     public $name = '';
     public $gender = '';
     public $class_room_id = '';
+    public $tanggal_lahir = '';
+    public $alamat = '';
+    public $nama_orang_tua = '';
+    public $no_hp_orang_tua = '';
 
     public ?int $editingId = null;
     public $showModal = false;
@@ -31,6 +34,10 @@ class Index extends Component
             'name' => 'required|string|max:255',
             'gender' => 'required|in:L,P',
             'class_room_id' => 'required|exists:class_rooms,id',
+            'tanggal_lahir' => 'nullable|date',
+            'alamat' => 'nullable|string',
+            'nama_orang_tua' => 'nullable|string|max:255',
+            'no_hp_orang_tua' => 'nullable|string|max:20',
         ];
     }
 
@@ -51,13 +58,17 @@ class Index extends Component
         $this->showModal = true;
     }
 
-    public function openEditModal(int $id)
+    public function openEditModal($id)
     {
         $student = Student::findOrFail($id);
         $this->editingId = $student->id;
         $this->name = $student->name;
         $this->gender = $student->gender;
         $this->class_room_id = $student->class_room_id;
+        $this->tanggal_lahir = $student->tanggal_lahir?->format('Y-m-d');
+        $this->alamat = $student->alamat;
+        $this->nama_orang_tua = $student->nama_orang_tua;
+        $this->no_hp_orang_tua = $student->no_hp_orang_tua;
         $this->showModal = true;
     }
 
@@ -71,6 +82,10 @@ class Index extends Component
                 'name' => $this->name,
                 'gender' => $this->gender,
                 'class_room_id' => $this->class_room_id,
+                'tanggal_lahir' => $this->tanggal_lahir,
+                'alamat' => $this->alamat,
+                'nama_orang_tua' => $this->nama_orang_tua,
+                'no_hp_orang_tua' => $this->no_hp_orang_tua,
             ]
         );
 
@@ -85,7 +100,7 @@ class Index extends Component
 
     public function resetForm()
     {
-        $this->reset(['name', 'gender', 'class_room_id', 'editingId']);
+        $this->reset(['name', 'gender', 'class_room_id', 'tanggal_lahir', 'alamat', 'nama_orang_tua', 'no_hp_orang_tua', 'editingId']);
     }
 
     public function render()
